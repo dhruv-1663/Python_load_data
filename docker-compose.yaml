@@ -5,8 +5,8 @@ services:
     build: .
     ports:
       - "3000:3000"
-    # volumes:
-    #   - "t1:/home/task1"
+    volumes:
+      - ./main:/home
     networks:
       - N1
     container_name: py_container
