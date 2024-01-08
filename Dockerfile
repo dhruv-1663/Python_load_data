@@ -2,6 +2,10 @@ FROM python:3.9
 
 WORKDIR /task1
 
+RUN apt update
+
+RUN apt install vim -y
+
 COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt

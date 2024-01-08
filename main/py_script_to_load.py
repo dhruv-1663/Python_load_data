@@ -16,7 +16,7 @@ def raw_data_14_insert(data_url_14,db_url):
     df1['Date/Time'] = dd.to_datetime(df1['Date/Time'])
     df1['Date/Time'] = df1['Date/Time'].dt.tz_localize(pytz.timezone('America/New_York')).dt.tz_convert(pytz.utc)
 
-    df1.to_sql("test_table1",db_url,index=False,if_exists='replace',parallel=False)
+    df1.to_sql("test_table1",db_url,index=True,if_exists='replace',parallel=False)
 
 
 def raw_data_15_insert(data_url_15,db_url):
@@ -30,7 +30,7 @@ def raw_data_15_insert(data_url_15,db_url):
     df2['Pickup_date'] = dd.to_datetime(df2['Pickup_date'])
     df2['Pickup_date'] = df2['Pickup_date'].dt.tz_localize(pytz.timezone('America/New_York')).dt.tz_convert(pytz.utc)
 
-    df2.to_sql("test_table3",db_url,index=False,if_exists='replace',parallel=False)
+    df2.to_sql("test_table3",db_url,index=True,if_exists='replace',parallel=False)
 
 
 
@@ -38,7 +38,7 @@ def raw_data_15_insert(data_url_15,db_url):
 def lookup_insert(data_url_lookup,db_url):
     # pass
     df_lookup = dd.read_csv(data_url_lookup)
-    df_lookup.to_sql("test_table2_lookup",db_url,index=False,if_exists='replace',parallel=False)
+    df_lookup.to_sql("test_table2_lookup",db_url,index=True,if_exists='replace',parallel=False)
 
 
 if __name__ == "__main__":
